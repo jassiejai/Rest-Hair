@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -27,7 +28,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{employeeId}")
-    public Employee getEmployee(@PathVariable Long employeeId){
+    public Optional<Employee> getEmployee(@PathVariable Long employeeId){
         return employeeService.getEmployee(employeeId);
     }
 
